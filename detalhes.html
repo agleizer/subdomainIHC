@@ -108,7 +108,7 @@
 		</h3>
 		<hr class="hr_style">
 		<div class="container mt-5 pt-4" id="dados-rua">
-			<h4 id="titulo-rua" class="my-3 text-center">Rua selecionada</h4>
+			<h4 id="titulo-rua" class="my-3 text-center">Rua das Palmeiras</h4>
 			<div class="text-center mb-3">
 				<button id="btnRota" class="btn btn-outline-success">
 					<img src="assets/img/walk.png" style="height: 20px; padding-bottom: 2px;" alt="pessoa andando">
@@ -125,8 +125,8 @@
 					</button>
 				</h6>
 				<div class="rating-display" id="media-geral">
-					<span id="stars">☆☆☆☆☆</span>
-					<span id="valor-media">(N/A)</span>
+					<span id="stars">★★★★☆</span>
+					<span id="valor-media">(4.2)</span>
 				</div>
 				<div class="text-center mt-2">
 					<a href="avaliacao.html" class="btn btn-success btn-sm rounded-pill"> + Fazer avaliação </a>
@@ -186,30 +186,7 @@
 		</div>
 		</div>
 
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const params = new URLSearchParams(window.location.search);
-				const rua = params.get("rua");
-				const titulo = document.getElementById("titulo-rua");
-				const btnRota = document.getElementById("btnRota");
 
-				if (rua && titulo) {
-					titulo.textContent = decodeURIComponent(rua);
-					console.log("Rua detectada:", rua);
-				} else if (titulo) {
-					titulo.textContent = "Rua não informada";
-					console.warn("Nenhum parâmetro 'rua' encontrado.");
-				}
-
-				btnRota.addEventListener("click", () => {
-					if (rua) {
-						window.location.href = `rotas.html?rua=${encodeURIComponent(rua)}`;
-					} else {
-						alert("Rua não identificada.");
-					}
-				});
-			});
-		</script>
 		<script>
 			let fontSize = 16;
 
