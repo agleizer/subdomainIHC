@@ -18,6 +18,10 @@
 			padding-top: 0.5rem;
 			padding-bottom: 0.5rem;
 		}
+
+		html {
+			font-size: 16px;
+		}
 	</style>
 	<head>
 		<meta charset="UTF-8" />
@@ -33,6 +37,11 @@
 			<div class="container-fluid d-flex align-items-center justify-content-between">
 				<a class="navbar-brand text-white ms-5" href="index.html" id="btnVoltar">← Voltar</a>
 				<span class="navbar-text text-white me-3">Login</span>
+				<div class="me-3">
+					<p style="color: white; display: inline-block;"> tamanho fonte</p>
+					<button class="btn btn-light btn-sm" id="fontPlus">A+</button>
+					<button class="btn btn-light btn-sm" id="fontMinus">A-</button>
+				</div>
 			</div>
 
 			<!-- Logo placed *below* the navbar, but visually overlapping -->
@@ -171,6 +180,20 @@
 
 				showAlert("Cadastro realizado com sucesso! Redirecionando...", "success");
 				setTimeout(() => (window.location.href = "index.html"), 1500);
+			});
+		</script>
+
+		<script>
+			let fontSize = 16;
+
+			document.getElementById("fontPlus").addEventListener("click", () => {
+				fontSize = Math.min(fontSize + 2, 28); 
+				document.documentElement.style.fontSize = fontSize + "px";
+			});
+
+			document.getElementById("fontMinus").addEventListener("click", () => {
+				fontSize = Math.max(fontSize - 2, 10); 
+				document.documentElement.style.fontSize = fontSize + "px";
 			});
 		</script>
 	</body>
