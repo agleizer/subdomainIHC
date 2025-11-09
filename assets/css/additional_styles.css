@@ -125,3 +125,13 @@
 #botao_enviar_avaliacao:hover{
     background-color: #146c43 !important;
 }
+@media (max-width: 576px) {
+	#fontPlus, 
+	#fontMinus {
+		display: none !important;
+	}
+    .tamanho_fonte {
+		display: none !important;
+	}
+}
+
