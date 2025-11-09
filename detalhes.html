@@ -6,6 +6,7 @@
 		<title>Caminho Fácil - Detalhes</title>
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/additional_styles.css">
 
 		<style>
 			body {
@@ -20,7 +21,7 @@
 				font-size: 1.4rem;
 			}
 
-			.rating-display .star {
+			.star {
 				color: gold;
 				font-size: 1.6rem;
 			}
@@ -40,11 +41,6 @@
 				margin-right: 10px;
 			}
 
-			.foto-rua {
-				border-radius: 10px;
-				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-			}
-
 			.comentario {
 				background: white;
 				border-radius: 10px;
@@ -57,45 +53,87 @@
 				color: #198754;
 			}
 
-			.btn-outline-success {
-				border-radius: 20px;
+			.logoBox {
+				background-color: white;
+				border-radius: 0 8px 8px 0;
+				padding: 5px 10px;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+				display: inline-block;
 			}
 
-			h6 {
-				margin-top: 20px;
-				font-weight: 600;
+			.logoImg {
+				height: 30px;
+				display: block;
 			}
+
+			.navbar {
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+			}
+
 		</style>
 	</head>
-
+	<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+	<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+	<script>
+	new window.VLibras.Widget('https://vlibras.gov.br/app');
+	</script>
 	<body class="bg-light">
-		<nav class="navbar navbar-dark bg-success fixed-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html">← Voltar</a>
-				<span class="navbar-text text-white">Detalhes da Rua</span>
+		<!-- Navbar -->
+		<nav class="navbar navbar-dark bg-success fixed-top position-relative">
+			<div class="container-fluid d-flex align-items-center justify-content-between">
+				<a class="navbar-brand text-white ms-5" href="index.html" id="btnVoltar">← Voltar</a>
+				<span class="navbar-text text-white me-3">Detalhes Calçada</span>
+				<div class="me-3">
+					<p style="color: white; display: inline-block;" class="tamanho_fonte"> tamanho fonte</p>
+					<button class="btn btn-light btn-sm" id="fontPlus">A+</button>
+					<button class="btn btn-light btn-sm" id="fontMinus">A-</button>
+				</div>
 			</div>
+
+			<a href="index.html">
+				<div class="logoBox position-absolute" style="top: 100%; left: 0; transform: translateY(-40%); z-index: 1">
+					<img class="logoImg" src="assets/img/logoCF.png" alt="Logo Caminho Fácil" alt="logo caminho fácil"/>
+				</div>
+			</a>
 		</nav>
 
-		<div class="container mt-5 pt-4">
-			<h4 id="titulo-rua" class="my-3">Rua selecionada</h4>
-
+		<!-- Conteúdo -->
+		<h3 class="funcionalidade_titulo">
+			<img src="assets/img/detalhes.png" class="icone_titulo" alt="icone de detalhes">
+			Detalhes calçada
+			<button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" 
+					title="Informações sobre a calçada selecionada. Incluindo avaliações e comentários." id="info_button">i
+			</button>
+		</h3>
+		<hr class="hr_style">
+		<div class="container mt-5 pt-4" id="dados-rua">
+			<h4 id="titulo-rua" class="my-3 text-center">Rua das Palmeiras</h4>
 			<div class="text-center mb-3">
-				<button id="btnRota" class="btn btn-outline-success">🚶 Traçar rota</button>
+				<button id="btnRota" class="btn btn-outline-success">
+					<img src="assets/img/walk.png" style="height: 20px; padding-bottom: 2px;" alt="pessoa andando">
+					Traçar rota
+				</button>
 			</div>
 
 			<!-- Avaliação média -->
 			<div class="card p-3 mb-4 shadow-sm">
-				<h6 class="text-success mb-2">Avaliação média</h6>
-				<div class="rating-display">
-					<span class="star">★★★★☆</span>
-					<span>(4.2)</span>
+				<h6 class="text-success mb-2">
+					Avaliação média
+					<button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" 
+					title="Média geral de todas as avaliações feitas sobre a calçada selecionada." id="info_button">i
+					</button>
+				</h6>
+				<div class="rating-display" id="media-geral">
+					<span id="stars">★★★★☆</span>
+					<span id="valor-media">(4.2)</span>
 				</div>
 				<div class="text-center mt-2">
-					<a href="avaliacao.html" class="btn btn-success btn-sm rounded-pill">+ Fazer avaliação</a>
+					<a href="avaliacao.html" class="btn btn-success btn-sm rounded-pill"> + Fazer avaliação </a>
 				</div>
 			</div>
 
-			<!-- Características com percentuais -->
+			<!-- Características de acessibilidade -->
 			<div class="card p-3 mb-4 shadow-sm">
 				<h6 class="text-success">Características de acessibilidade</h6>
 
@@ -135,7 +173,7 @@
 			<!-- Fotos -->
 			<div class="card p-3 mb-4 shadow-sm">
 				<h6 class="text-success">Fotos recentes</h6>
-				<img src="assets/img/rua.png" class="img-fluid foto-rua mt-2" alt="Foto da rua" />
+				<img src="assets/img/rua.png" class="img-fluid foto-rua mt-2" alt="Foto da rua" alt="Imagem da rua"/>
 			</div>
 
 			<!-- Comentários -->
@@ -146,32 +184,27 @@
 				<div class="comentario"><strong>Ana:</strong> Muito iluminada à noite, ótima para caminhar.</div>
 			</div>
 		</div>
+		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const params = new URLSearchParams(window.location.search);
-				const rua = params.get("rua");
-				const titulo = document.getElementById("titulo-rua");
-				const btnRota = document.getElementById("btnRota");
+			let fontSize = 16;
 
-				if (rua && titulo) {
-					titulo.textContent = decodeURIComponent(rua);
-					console.log("Rua detectada:", rua);
-				} else if (titulo) {
-					titulo.textContent = "Rua não informada";
-					console.warn("Nenhum parâmetro 'rua' encontrado.");
-				}
+			document.getElementById("fontPlus").addEventListener("click", () => {
+				fontSize = Math.min(fontSize + 2, 28); 
+				document.documentElement.style.fontSize = fontSize + "px";
+			});
 
-				btnRota.addEventListener("click", () => {
-					if (rua) {
-						window.location.href = `rotas.html?rua=${encodeURIComponent(rua)}`;
-					} else {
-						alert("Rua não identificada.");
-					}
-				});
+			document.getElementById("fontMinus").addEventListener("click", () => {
+				fontSize = Math.max(fontSize - 2, 10); 
+				document.documentElement.style.fontSize = fontSize + "px";
 			});
 		</script>
 	</body>
+	<div vw class="enabled">
+	<div vw-access-button class="active"></div>
+	<div vw-plugin-wrapper>
+		<div class="vw-plugin-top-wrapper"></div>
+	</div>
+	</div>
 </html>
