@@ -135,54 +135,55 @@
 
 			<!-- Características de acessibilidade -->
 			<div class="card p-3 mb-4 shadow-sm">
-				<h6 class="text-success">
-					Características de acessibilidade
-					<button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" 
-					title="Nível de qualidade de diferentes aspectos de acessabilidade da calçada selecionada" id="info_button">i
-					</button>
-				</h6>
+				<h6 class="text-success">Características de acessibilidade</h6>
 
-				<div id="piso" class="criterio mt-2"><label>Piso tátil presente</label><span>0%</span></div>
+				<div class="criterio mt-2">
+					<label>Piso tátil presente</label>
+					<span>90%</span>
+				</div>
 				<div class="progress mb-2">
-					<div class="progress-bar bg-success" style="width: 0%"></div>
+					<div class="progress-bar bg-success" style="width: 90%"></div>
 				</div>
 
-				<div id="rebaixamento" class="criterio"><label>Rebaixamento de guia</label><span>0%</span></div>
+				<div class="criterio">
+					<label>Rebaixamento de guia</label>
+					<span>75%</span>
+				</div>
 				<div class="progress mb-2">
-					<div class="progress-bar bg-warning" style="width: 0%"></div>
+					<div class="progress-bar bg-warning" style="width: 75%"></div>
 				</div>
 
-				<div id="iluminacao" class="criterio"><label>Iluminação noturna</label><span>0%</span></div>
+				<div class="criterio">
+					<label>Iluminação adequada</label>
+					<span>85%</span>
+				</div>
 				<div class="progress mb-2">
-					<div class="progress-bar bg-info" style="width: 0%"></div>
+					<div class="progress-bar bg-info" style="width: 85%"></div>
 				</div>
 
-				<div id="livre" class="criterio"><label>Calçada livre de obstáculos</label><span>0%</span></div>
-				<div class="progress mb-2">
-					<div class="progress-bar bg-danger" style="width: 0%"></div>
+				<div class="criterio">
+					<label>Calçada livre de obstáculos</label>
+					<span>70%</span>
 				</div>
-
-				<div id="idoso" class="criterio"><label>Adequada para idosos</label><span>0%</span></div>
-				<div class="progress mb-2">
-					<div class="progress-bar bg-primary" style="width: 0%"></div>
-				</div>
-
-				<div id="cadeirante" class="criterio"><label>Adequada para cadeirantes</label><span>0%</span></div>
-				<div class="progress mb-2">
-					<div class="progress-bar bg-secondary" style="width: 0%"></div>
-				</div>
-
-				<div id="carrinho" class="criterio"><label>Adequada para carrinhos de bebê</label><span>0%</span></div>
 				<div class="progress">
-					<div class="progress-bar bg-dark" style="width: 0%"></div>
+					<div class="progress-bar bg-danger" style="width: 70%"></div>
 				</div>
+			</div>
+
+			<!-- Fotos -->
+			<div class="card p-3 mb-4 shadow-sm">
+				<h6 class="text-success">Fotos recentes</h6>
+				<img src="assets/img/rua.png" class="img-fluid foto-rua mt-2" alt="Foto da rua" alt="Imagem da rua"/>
 			</div>
 
 			<!-- Comentários -->
-			<div class="card p-3 shadow-sm mb-5" id="comentarios">
-				<h6 class="text-success">Comentários</h6>				
-				<p class="text-muted">Nenhum comentário ainda.</p>
+			<div class="card p-3 shadow-sm mb-5">
+				<h6 class="text-success">Comentários dos usuários</h6>
+				<div class="comentario"><strong>Maria:</strong> Calçada em ótimo estado!</div>
+				<div class="comentario"><strong>João:</strong> Há um pequeno desnível perto da esquina.</div>
+				<div class="comentario"><strong>Ana:</strong> Muito iluminada à noite, ótima para caminhar.</div>
 			</div>
+		</div>
 		</div>
 
 		<script>
